@@ -4,5 +4,5 @@ compatibility_date = "2024-09-23"
 [[d1_databases]]
 binding = "DB"
 database_name = "expenseflow-db"
-database_id = "placeholder"
+database_id = "cdc6fb46-9e3c-4b42-8ce5-9eb104f0c3c4"
 migrations_dir = "migrations"
