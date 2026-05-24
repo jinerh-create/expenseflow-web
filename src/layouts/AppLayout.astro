@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; }
+const { title = 'ExpenseFlow' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080d0b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>{title} · ExpenseFlow</title>
+</head>
+<body>
+  <main style="min-height:100vh; padding-bottom:72px;">
+    <slot />
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav style="position:fixed;bottom:0;left:0;right:0;height:64px;background:rgba(15,26,20,0.97);border-top:1px solid rgba(255,255,255,0.07);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom);">
+    {[
+      ['/', '🏠', 'Home'],
+      ['/transactions', '📋', 'Expenses'],
+      ['/budgets', '🎯', 'Budgets'],
+      ['/reports', '📊', 'Reports'],
+    ].map(([href, emoji, label]) => (
+      <a href={href} style={`flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:${Astro.url.pathname===href || (href!=='/' && Astro.url.pathname.startsWith(String(href))) ? '#00785A' : '#3d6450'};`}>
+        <span style="font-size:22px;line-height:1">{emoji}</span>
+        <span style={`font-size:10px;font-weight:${Astro.url.pathname===href || (href!=='/' && Astro.url.pathname.startsWith(String(href))) ? '700' : '500'}`}>{label}</span>
+      </a>
+    ))}
+  </nav>
+</body>
+</html>

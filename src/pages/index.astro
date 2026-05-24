@@ -1,0 +1,7 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import Dashboard from '../components/Dashboard.tsx';
+---
+<AppLayout title="Home" active="home">
+  <Dashboard client:load />
+</AppLayout>

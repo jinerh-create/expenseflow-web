@@ -1,0 +1,7 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import BudgetManager from '../components/BudgetManager.tsx';
+---
+<AppLayout title="Budgets" active="budgets">
+  <BudgetManager client:load />
+</AppLayout>

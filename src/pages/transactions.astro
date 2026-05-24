@@ -1,0 +1,7 @@
+---
+import AppLayout from '../layouts/AppLayout.astro';
+import TransactionList from '../components/TransactionList.tsx';
+---
+<AppLayout title="Transactions" active="transactions">
+  <TransactionList client:load />
+</AppLayout>
